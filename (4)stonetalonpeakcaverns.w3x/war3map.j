@@ -70,6 +70,111 @@ function Unit000017_DropItems takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
 
+function Unit000022_DropItems takes nothing returns nothing
+    local widget  trigWidget = null
+    local unit    trigUnit   = null
+    local integer itemID     = 0
+    local boolean canDrop    = true
+
+    set trigWidget = bj_lastDyingWidget
+    if (trigWidget == null) then
+        set trigUnit = GetTriggerUnit()
+    endif
+
+    if (trigUnit != null) then
+        set canDrop = not IsUnitHidden(trigUnit)
+        if (canDrop and GetChangingUnit() != null) then
+            set canDrop = (GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE))
+        endif
+    endif
+
+    if (canDrop) then
+        // Item set 0
+        call RandomDistReset(  )
+        call RandomDistAddItem( ChooseRandomItemEx( ITEM_TYPE_ANY, 3 ), 100 )
+        set itemID = RandomDistChoose(  )
+        if (trigUnit != null) then
+            call UnitDropItem( trigUnit, itemID )
+        else
+            call WidgetDropItem( trigWidget, itemID )
+        endif
+
+    endif
+
+    set bj_lastDyingWidget = null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Unit000023_DropItems takes nothing returns nothing
+    local widget  trigWidget = null
+    local unit    trigUnit   = null
+    local integer itemID     = 0
+    local boolean canDrop    = true
+
+    set trigWidget = bj_lastDyingWidget
+    if (trigWidget == null) then
+        set trigUnit = GetTriggerUnit()
+    endif
+
+    if (trigUnit != null) then
+        set canDrop = not IsUnitHidden(trigUnit)
+        if (canDrop and GetChangingUnit() != null) then
+            set canDrop = (GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE))
+        endif
+    endif
+
+    if (canDrop) then
+        // Item set 0
+        call RandomDistReset(  )
+        call RandomDistAddItem( ChooseRandomItemEx( ITEM_TYPE_ANY, 3 ), 100 )
+        set itemID = RandomDistChoose(  )
+        if (trigUnit != null) then
+            call UnitDropItem( trigUnit, itemID )
+        else
+            call WidgetDropItem( trigWidget, itemID )
+        endif
+
+    endif
+
+    set bj_lastDyingWidget = null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
+function Unit000028_DropItems takes nothing returns nothing
+    local widget  trigWidget = null
+    local unit    trigUnit   = null
+    local integer itemID     = 0
+    local boolean canDrop    = true
+
+    set trigWidget = bj_lastDyingWidget
+    if (trigWidget == null) then
+        set trigUnit = GetTriggerUnit()
+    endif
+
+    if (trigUnit != null) then
+        set canDrop = not IsUnitHidden(trigUnit)
+        if (canDrop and GetChangingUnit() != null) then
+            set canDrop = (GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE))
+        endif
+    endif
+
+    if (canDrop) then
+        // Item set 0
+        call RandomDistReset(  )
+        call RandomDistAddItem( ChooseRandomItemEx( ITEM_TYPE_ANY, 3 ), 100 )
+        set itemID = RandomDistChoose(  )
+        if (trigUnit != null) then
+            call UnitDropItem( trigUnit, itemID )
+        else
+            call WidgetDropItem( trigWidget, itemID )
+        endif
+
+    endif
+
+    set bj_lastDyingWidget = null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
 function Unit000036_DropItems takes nothing returns nothing
     local widget  trigWidget = null
     local unit    trigUnit   = null
@@ -245,6 +350,41 @@ function Unit000048_DropItems takes nothing returns nothing
     call DestroyTrigger(GetTriggeringTrigger())
 endfunction
 
+function Unit000051_DropItems takes nothing returns nothing
+    local widget  trigWidget = null
+    local unit    trigUnit   = null
+    local integer itemID     = 0
+    local boolean canDrop    = true
+
+    set trigWidget = bj_lastDyingWidget
+    if (trigWidget == null) then
+        set trigUnit = GetTriggerUnit()
+    endif
+
+    if (trigUnit != null) then
+        set canDrop = not IsUnitHidden(trigUnit)
+        if (canDrop and GetChangingUnit() != null) then
+            set canDrop = (GetChangingUnitPrevOwner() == Player(PLAYER_NEUTRAL_AGGRESSIVE))
+        endif
+    endif
+
+    if (canDrop) then
+        // Item set 0
+        call RandomDistReset(  )
+        call RandomDistAddItem( ChooseRandomItemEx( ITEM_TYPE_ANY, 8 ), 100 )
+        set itemID = RandomDistChoose(  )
+        if (trigUnit != null) then
+            call UnitDropItem( trigUnit, itemID )
+        else
+            call WidgetDropItem( trigWidget, itemID )
+        endif
+
+    endif
+
+    set bj_lastDyingWidget = null
+    call DestroyTrigger(GetTriggeringTrigger())
+endfunction
+
 function Unit000052_DropItems takes nothing returns nothing
     local widget  trigWidget = null
     local unit    trigUnit   = null
@@ -405,7 +545,7 @@ function CreateNeutralHostile takes nothing returns nothing
     set u = BlzCreateUnitWithSkin( p, 'nslv', 194.8, -1460.6, 267.734, 'nslv' )
     set unitID = ChooseRandomCreep( 3 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -4097.0, -6912.9, 173.950, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, -4127.8, -6933.6, 96.593, unitID )
         call SetUnitAcquireRange( u, 200.0 )
         set t = CreateTrigger(  )
         call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
@@ -414,49 +554,51 @@ function CreateNeutralHostile takes nothing returns nothing
     endif
     set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -4200.2, -7038.6, 321.635, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, -4200.2, -7038.6, 96.925, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
     set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -4019.3, -7022.5, 285.829, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, -4019.3, -7022.5, 70.654, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -3633.2, 6517.1, 242.091, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4185.5, 6687.6, 272.716, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -3748.7, 6690.4, 262.043, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 3965.4, 6692.7, 282.892, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 3 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -3503.1, 6704.1, 319.152, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4088.2, 6567.7, 269.685, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
+        set t = CreateTrigger(  )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_CHANGE_OWNER )
+        call TriggerAddAction( t, function Unit000023_DropItems )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 3 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4104.5, 6485.5, 304.715, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4051.7, -6903.0, 96.179, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
+        set t = CreateTrigger(  )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_CHANGE_OWNER )
+        call TriggerAddAction( t, function Unit000028_DropItems )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 3955.1, 6676.6, 265.482, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4173.2, -7014.0, 93.341, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
     endif
-    set unitID = ChooseRandomCreep( 1 )
+    set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4211.9, 6663.8, 68.139, unitID )
-    endif
-    set unitID = ChooseRandomCreep( 1 )
-    if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4066.4, -6821.5, 31.982, unitID )
-    endif
-    set unitID = ChooseRandomCreep( 1 )
-    if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 3961.8, -6946.7, 28.972, unitID )
-    endif
-    set unitID = ChooseRandomCreep( 1 )
-    if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4198.8, -6975.3, 249.760, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 3972.8, -7052.0, 88.541, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
     endif
     set unitID = ChooseRandomCreep( 6 )
     if (unitID != -1) then
@@ -553,7 +695,11 @@ function CreateNeutralHostile takes nothing returns nothing
         set u = BlzCreateUnitWithSkin( p, unitID, -2142.6, -3097.6, 222.340, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
-    set u = BlzCreateUnitWithSkin( p, 'nrwm', 11.7, -1591.6, 273.772, 'nrwm' )
+    set u = BlzCreateUnitWithSkin( p, 'nrwm', 11.7, -1591.6, 273.770, 'nrwm' )
+    set t = CreateTrigger(  )
+    call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
+    call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_CHANGE_OWNER )
+    call TriggerAddAction( t, function Unit000051_DropItems )
     set unitID = ChooseRandomCreep( 5 )
     if (unitID != -1) then
         set u = BlzCreateUnitWithSkin( p, unitID, -5883.5, -3337.2, 8.733, unitID )
@@ -628,6 +774,25 @@ function CreateNeutralHostile takes nothing returns nothing
     set unitID = ChooseRandomCreep( 4 )
     if (unitID != -1) then
         set u = BlzCreateUnitWithSkin( p, unitID, -6084.8, 2716.8, 4.895, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
+    endif
+    set unitID = ChooseRandomCreep( 3 )
+    if (unitID != -1) then
+        set u = BlzCreateUnitWithSkin( p, unitID, -3650.6, 6592.1, 269.685, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
+        set t = CreateTrigger(  )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
+        call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_CHANGE_OWNER )
+        call TriggerAddAction( t, function Unit000022_DropItems )
+    endif
+    set unitID = ChooseRandomCreep( 2 )
+    if (unitID != -1) then
+        set u = BlzCreateUnitWithSkin( p, unitID, -3773.4, 6717.1, -77.108, unitID )
+        call SetUnitAcquireRange( u, 200.0 )
+    endif
+    set unitID = ChooseRandomCreep( 2 )
+    if (unitID != -1) then
+        set u = BlzCreateUnitWithSkin( p, unitID, -3553.3, 6712.1, -87.285, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
 endfunction
