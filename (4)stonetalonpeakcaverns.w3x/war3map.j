@@ -787,12 +787,12 @@ function CreateNeutralHostile takes nothing returns nothing
     endif
     set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -3773.4, 6717.1, -77.108, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, -3773.4, 6717.1, 282.892, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
     set unitID = ChooseRandomCreep( 2 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, -3553.3, 6712.1, -87.285, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, -3553.3, 6712.1, 272.716, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
 endfunction
