@@ -448,19 +448,19 @@ function CreateNeutralHostile takes nothing returns nothing
     endif
     set unitID = ChooseRandomCreep( 1 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4447.1, -6964.1, 31.982, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4066.4, -6821.5, 31.982, unitID )
     endif
     set unitID = ChooseRandomCreep( 1 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4342.6, -7089.3, 28.972, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 3961.8, -6946.7, 28.972, unitID )
     endif
     set unitID = ChooseRandomCreep( 1 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 4579.5, -7117.9, 249.760, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 4198.8, -6975.3, 249.760, unitID )
     endif
     set unitID = ChooseRandomCreep( 6 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 5602.9, -6100.2, 130.900, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 5858.9, -6356.2, 130.900, unitID )
         call SetUnitAcquireRange( u, 200.0 )
         set t = CreateTrigger(  )
         call TriggerRegisterUnitEvent( t, u, EVENT_UNIT_DEATH )
@@ -469,12 +469,12 @@ function CreateNeutralHostile takes nothing returns nothing
     endif
     set unitID = ChooseRandomCreep( 4 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 5560.2, -6302.5, 130.900, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 5816.2, -6558.5, 130.900, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
     set unitID = ChooseRandomCreep( 4 )
     if (unitID != -1) then
-        set u = BlzCreateUnitWithSkin( p, unitID, 5791.1, -6150.1, 130.900, unitID )
+        set u = BlzCreateUnitWithSkin( p, unitID, 6047.1, -6406.1, 130.900, unitID )
         call SetUnitAcquireRange( u, 200.0 )
     endif
     set unitID = ChooseRandomCreep( 5 )
@@ -657,7 +657,7 @@ function CreateNeutralPassiveBuildings takes nothing returns nothing
     call SetUnitColor( u, ConvertPlayerColor(0) )
     set u = BlzCreateUnitWithSkin( p, 'nmra', 4096.0, 6976.0, 270.000, 'nmra' )
     call SetUnitColor( u, ConvertPlayerColor(0) )
-    set u = BlzCreateUnitWithSkin( p, 'nmra', 4416.0, -7424.0, 270.000, 'nmra' )
+    set u = BlzCreateUnitWithSkin( p, 'nmra', 4096.0, -7296.0, 270.000, 'nmra' )
     call SetUnitColor( u, ConvertPlayerColor(0) )
     set u = BlzCreateUnitWithSkin( p, 'nmra', -4096.0, -7424.0, 270.000, 'nmra' )
     call SetUnitColor( u, ConvertPlayerColor(0) )
@@ -675,6 +675,24 @@ function CreateNeutralPassiveBuildings takes nothing returns nothing
     call SetUnitColor( u, ConvertPlayerColor(0) )
     set u = BlzCreateUnitWithSkin( p, 'ngad', -640.0, -1984.0, 270.000, 'ngad' )
     set u = BlzCreateUnitWithSkin( p, 'ngme', 640.0, -1984.0, 270.000, 'ngme' )
+    set u = BlzCreateUnitWithSkin( p, 'nmoo', -64.0, -3200.0, 270.000, 'nmoo' )
+    set u = BlzCreateUnitWithSkin( p, 'nmoo', -64.0, 832.0, 270.000, 'nmoo' )
+    set u = BlzCreateUnitWithSkin( p, 'nmoo', -2112.0, -1152.0, 270.000, 'nmoo' )
+    set u = BlzCreateUnitWithSkin( p, 'nmoo', 1920.0, -1088.0, 270.000, 'nmoo' )
+endfunction
+
+//===========================================================================
+function CreateNeutralPassive takes nothing returns nothing
+    local player p = Player(PLAYER_NEUTRAL_PASSIVE)
+    local unit u
+    local integer unitID
+    local trigger t
+    local real life
+
+    set u = BlzCreateUnitWithSkin( p, 'nrat', 6807.6, -3366.2, 265.163, 'nrat' )
+    set u = BlzCreateUnitWithSkin( p, 'nrat', -6804.3, -2728.9, 148.847, 'nrat' )
+    set u = BlzCreateUnitWithSkin( p, 'nrat', 6761.3, 2270.9, 159.933, 'nrat' )
+    set u = BlzCreateUnitWithSkin( p, 'nrat', -6758.9, 2416.9, 163.174, 'nrat' )
 endfunction
 
 //===========================================================================
@@ -690,6 +708,7 @@ function CreateAllUnits takes nothing returns nothing
     call CreateNeutralPassiveBuildings(  )
     call CreatePlayerBuildings(  )
     call CreateNeutralHostile(  )
+    call CreateNeutralPassive(  )
     call CreatePlayerUnits(  )
 endfunction
 
@@ -851,10 +870,10 @@ function config takes nothing returns nothing
     call SetTeams( 4 )
     call SetGamePlacement( MAP_PLACEMENT_TEAMS_TOGETHER )
 
-    call DefineStartLocation( 0, -5632.0, 5568.0 )
-    call DefineStartLocation( 1, 5632.0, -6144.0 )
-    call DefineStartLocation( 2, 5632.0, 5568.0 )
-    call DefineStartLocation( 3, -5632.0, -6208.0 )
+    call DefineStartLocation( 0, -5888.0, 5888.0 )
+    call DefineStartLocation( 1, 5888.0, -6400.0 )
+    call DefineStartLocation( 2, 5952.0, 5888.0 )
+    call DefineStartLocation( 3, -5888.0, -6400.0 )
 
     // Player setup
     call InitCustomPlayerSlots(  )
